@@ -1,0 +1,6 @@
+venv
+.env
+migrations
+__pycache__
+db.sqlite3
+/frontend/node_modules
