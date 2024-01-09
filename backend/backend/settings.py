@@ -187,3 +187,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
 )
 CORS_ALLOW_CREDENTIALS = True
+
+
+SESSION_COOKIE_SAMESITE = None # allow session cookie to be sent in cross-site requests
+CSRF_COOKIE_SAMESITE = None # allow CSRF cookie to be sent in cross-site requests

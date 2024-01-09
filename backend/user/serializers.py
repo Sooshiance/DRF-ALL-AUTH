@@ -12,13 +12,13 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("id", "phone", "email", "first_name", "last_name", "image")
+        fields = ("id", "phone", "email", "first_name", "last_name", "image", "role")
 
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User 
-        fields = ['phone', 'email', 'first_name', 'last_name', 'id', 'image', 'password']
+        fields = ['phone', 'email', 'first_name', 'last_name', 'id', 'image', 'password', 'role']
         
     def create(self, **validated_data):
         return super().create(validated_data)

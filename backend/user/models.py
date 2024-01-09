@@ -57,6 +57,18 @@ class AllUser(BaseUserManager):
         return user
 
 
+class Role:
+    GOLDEN = 1
+    SILVER = 2
+    BRONZE = 3
+
+    ROLES = (
+        (GOLDEN, 'GOLDEN'),
+        (SILVER, 'SILVER'),
+        (BRONZE, 'BRONZE'),
+    )
+
+
 class User(AbstractBaseUser, PermissionsMixin):
     phone      = models.CharField(max_length=30, unique=True)
     email      = models.EmailField(unique=True)
@@ -72,6 +84,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     
     
     is_admin   = models.BooleanField(default=False)
+    role       = models.PositiveSmallIntegerField(choices=Role.ROLES, default=3)
     last_login = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -116,10 +129,11 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30, null=True, blank=True, verbose_name='نام')
     last_name  = models.CharField(max_length=50, null=True, blank=True, verbose_name='نام خانوادگی')
     avatar     = models.FileField(upload_to="users/profile/", blank=True, null=True)
-    
-    def __str__(self) -> str:
-        return f"{self.user} {self.email}"
+    role       = models.PositiveSmallIntegerField()
     
     @property
     def fullName(self):
         return str(self.first_name) + ' ' + str(self.last_name)
+    
+    def __str__(self) -> str:
+        return f"{self.user} {self.email} {self.fullName} {self.role}"

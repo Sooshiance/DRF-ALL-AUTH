@@ -5,6 +5,8 @@ import {
   USER_LOGIN_FAIL,
 } from "../constants/userConstants";
 
+axios.defaults.withCredentials = false;
+
 const login = (phone, password) => async (dispatch) => {
   try {
     dispatch({

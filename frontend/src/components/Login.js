@@ -43,6 +43,7 @@ function Login(history, location) {
           </Form.Group>
 
           <Form.Group controlId="Password">
+            <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Enter your password"
