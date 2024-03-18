@@ -10,8 +10,8 @@ const LoginHandler = async (phone, password) => {
 
         if (status === 200) {
             console.log("accepted!");
-            console.log(jwt_decode(data.access));
-            console.log(jwt_decode(data.refresh));
+            console.log(data.access);
+            console.log(data.refresh);
         }
         return { data, error: null }
     } catch (error) {
