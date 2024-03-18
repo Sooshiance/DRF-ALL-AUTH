@@ -12,4 +12,4 @@ const APICall = axios.create({
 })
 
 
-export default APICall
+export { APICall }

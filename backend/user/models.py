@@ -74,7 +74,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     role         = models.PositiveSmallIntegerField(choices=User_Type.ROLE, default=2)
     
     USERNAME_FIELD = "phone"
-    REQUIRED_FIELDS = ["email", "username", "full_name", "role"]
+    REQUIRED_FIELDS = ["email", "username", "full_name"]
     
     objects = AllUser()
 

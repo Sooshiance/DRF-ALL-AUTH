@@ -35,8 +35,8 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
-    phone   = serializers.CharField(required=True)
-    pasword = serializers.CharField(required=True, write_only=True)
+    phone    = serializers.CharField(required=True)
+    password = serializers.CharField(required=True, write_only=True)
 
 
 class OTPSerializer(serializers.Serializer):
