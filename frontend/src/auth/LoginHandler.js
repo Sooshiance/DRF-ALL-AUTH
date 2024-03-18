@@ -1,7 +1,8 @@
 import React from 'react'
-import { APICall } from '../utils/APICall'
+import APICall from '../utils/APICall';
+import jwt_decode from 'jwt-decode'
 
-export const LoginHandler = async (phone, password) => {
+const LoginHandler = async (phone, password) => {
     try {
         const { data, status } = await APICall.post("user/token/",
             { phone, password }
@@ -9,8 +10,8 @@ export const LoginHandler = async (phone, password) => {
 
         if (status === 200) {
             console.log("accepted!");
-            console.log(data.access);
-            console.log(data.refresh);
+            console.log(jwt_decode(data.access));
+            console.log(jwt_decode(data.refresh));
         }
         return { data, error: null }
     } catch (error) {

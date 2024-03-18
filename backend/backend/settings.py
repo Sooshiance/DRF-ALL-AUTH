@@ -136,7 +136,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# TODO : Change defaullt User model
+# TODO : to prevent shell and reverse shell attacks
+MEDIA_DIR = Path(__file__).resolve().parent.parent.parent
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = MEDIA_DIR / 'media'
+
+
+# TODO : Change default User model
 AUTH_USER_MODEL = "user.User"
 
 
@@ -199,3 +206,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
 CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+]

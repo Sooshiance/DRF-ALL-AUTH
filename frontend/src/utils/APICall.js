@@ -1,8 +1,7 @@
 import axios from 'axios'
-import rootURL from '../constants/urlConstants'
 
 const APICall = axios.create({
-    baseURL: rootURL,
+    baseURL: "http://127.0.0.1:8000/api/",
     timeout: 5000,
 
     headers: {
@@ -12,4 +11,4 @@ const APICall = axios.create({
 })
 
 
-export { APICall }
+export default APICall

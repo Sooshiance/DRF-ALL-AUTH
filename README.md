@@ -1,1 +1,1 @@
-# Authentication DRF React Redux
+# 2-Fascor Authentication DRF + React + Redux
