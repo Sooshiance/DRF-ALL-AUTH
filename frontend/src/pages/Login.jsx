@@ -8,6 +8,10 @@ const Login = () => {
 
     const navigate = useNavigate()
 
+    useEffect(() => {
+        console.log(phone);
+    }, [phone])
+
     const loginHandler = (e) => {
         e.preventDefault()
         // setIsLoading(true)
@@ -28,13 +32,13 @@ const Login = () => {
                 <label>
                     Phone
                 </label>
-                <input type="number" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input type="number" name='phone' className='input' value={phone} onChange={(e) => setPhone(e.target.value)} />
                 <br />
                 <br />
                 <label>
                     Password
                 </label>
-                <input type="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" name='password' value={password} onChange={(e) => setPassword(e.target.value)} />
                 <br />
                 <br />
                 <button type="submit">

@@ -19,7 +19,9 @@ class HomeAPIView(generics.GenericAPIView):
 
 
 class LoginAPIView(generics.GenericAPIView):
-    """"""
+    """
+    Login API View page
+    """
     permission_classes = [permissions.AllowAny]
     serializer_class = LoginSerializer
 
@@ -33,7 +35,7 @@ class LoginAPIView(generics.GenericAPIView):
                 token = tokens.RefreshToken.for_user(user)
                 data = s.data
                 data["tokens"] = {"refresh": str(token), "access": str(token.access_token)}
-                return response.Response(data, status=status.HTTP_200_OK)
+                return response.Response(data=data, status=status.HTTP_200_OK)
             else:
                 return response.Response(data=s.errors, status=status.HTTP_404_NOT_FOUND)
         else:
