@@ -7,3 +7,5 @@ def otpToken():
     otp = totp.now()
 
     print(f"The OTP is : {otp}")
+
+    return otp 

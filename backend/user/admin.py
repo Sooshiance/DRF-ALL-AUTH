@@ -1,7 +1,7 @@
 from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 
-from .models import User, Profile
+from .models import User, Profile, UserOTP
 
 
 class Admin(UserAdmin):
@@ -17,6 +17,12 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ['phone']
 
 
+class OTPAdmin(admin.ModelAdmin):
+    list_display = ['user', 'otp']
+
+
 admin.site.register(User, Admin)
 
 admin.site.register(Profile, ProfileAdmin)
+
+admin.site.register(UserOTP, OTPAdmin)
