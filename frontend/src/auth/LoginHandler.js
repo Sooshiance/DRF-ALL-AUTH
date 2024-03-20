@@ -8,8 +8,7 @@ const LoginHandler = async (phone, password) => {
         )
 
         if (status === 200) {
-            localStorage.setItem('access', data.tokens.access);
-            localStorage.setItem('refresh', data.tokens.refresh);
+            alert('enter the otp!')
         }
         return { data, error: null }
     } catch (error) {

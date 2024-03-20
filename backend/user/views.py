@@ -59,7 +59,11 @@ class LoginOTPVerifyAPIView(generics.GenericAPIView):
                 token = tokens.RefreshToken.for_user(user)
                 data = s.data 
                 data["tokens"] = {"refresh": str(token), "access": str(token.access_token)}
-        return response.Response(data=data, status=status.HTTP_200_OK)
+                return response.Response(data=data, status=status.HTTP_200_OK)
+            else:
+                return response.Response(data=s.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
+        else:
+            return response.Response(data=s.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
 
 
 class ProfileAPIView(generics.GenericAPIView):

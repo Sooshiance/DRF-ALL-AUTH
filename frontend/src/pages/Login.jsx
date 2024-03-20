@@ -21,7 +21,7 @@ const Login = () => {
         if (error) {
             alert(error)
         } else {
-            navigate('/')
+            navigate('/login-otp')
             // resetForm()
         }
     }
