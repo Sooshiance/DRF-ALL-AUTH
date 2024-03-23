@@ -5,6 +5,7 @@ import LoginHandler from '../auth/LoginHandler'
 const Login = () => {
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     const navigate = useNavigate()
 
@@ -12,9 +13,12 @@ const Login = () => {
         console.log(phone);
     }, [phone])
 
+    useEffect(() => {
+        setIsLoggedIn(true)
+    }, [isLoggedIn])
+
     const loginHandler = (e) => {
         e.preventDefault()
-        // setIsLoading(true)
 
         const { error } = LoginHandler(phone, password)
 
